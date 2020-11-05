@@ -1,19 +1,14 @@
 pipeline {
     agent any 
     stages {
-        stage('build') { 
+        stage('SCM Chechout') { 
             steps {
-                echo "building the application..."
+                git 'https://github.com/fraturco/MyProject'
             }
         }
-        stage('test') { 
+        stage('compile-packege') { 
             steps {
-               echo "testing the application..."
-            }
-        }
-        stage('deploy') { 
-            steps {
-                echo "deploying the application..." 
+               sh 'mvn package'
             }
         }
     }
