@@ -1,19 +1,15 @@
 pipeline {
     agent any 
     stages {
-        stage('build') { 
+        stage('SCM Chechout') { 
             steps {
-                echo "building the application..."
+                git 'https://github.com/fraturco/MyProject'
             }
         }
-        stage('test') { 
+        stage('compile-package') { 
             steps {
-               echo "testing the application..."
-            }
-        }
-        stage('deploy') { 
-            steps {
-                echo "deploying the application..." 
+                def mvnHome = tool name: 'Maven', type: 'maven'
+                sh "${mvnHome}/bin/mvn package"
             }
         }
     }
