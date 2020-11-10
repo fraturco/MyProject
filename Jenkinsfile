@@ -1,5 +1,8 @@
 pipeline {
     agent any 
+    tools {
+        maven 'Maven'
+     }
     stages {
         stage('SCM Chechout') { 
             steps {
@@ -8,8 +11,7 @@ pipeline {
         }
         stage('compile-package') { 
             steps {
-                def mvnHome = tool name: 'Maven', type: 'maven'
-                sh "${mvnHome}/bin/mvn package"
+                sh 'mvn package'
             }
         }
     }
