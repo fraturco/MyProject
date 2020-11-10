@@ -4,12 +4,12 @@ pipeline {
         maven 'Maven'
      }
     stages {
-        stage('SCM Chechout') { 
+        stage('SCM Checkout') { 
             steps {
                 git 'https://github.com/fraturco/MyProject'
             }
         }
-        stage('compile-package') { 
+        stage('package') { 
             steps {
                 sh 'mvn package'
             }
