@@ -23,7 +23,10 @@ pipeline {
     }
     post {
         success{
-        emailext body:'Test mail' 
+            echo 'The pipeline success'
+        }
+        failure{
+         echo "The pipeline fails'
         }
     }
 }
