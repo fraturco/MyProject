@@ -2,6 +2,7 @@ pipeline {
     agent any 
     tools {
         maven 'Maven'
+        git 'Git'
      }
     stages {
         stage('git') { 
@@ -11,13 +12,18 @@ pipeline {
         }
         stage('install') { 
             steps {
-                sh 'mvn install'
+                sh 'mvn cosa'
             }
         }
         stage('deploy'){
             steps{
-             sh 'mvn deploy -p MyProject'
+             sh 'mvn deploy  MyProject'
             }
+        }
+    }
+    post {
+        success{
+        emailext body:'Test mail' 
         }
     }
 }
