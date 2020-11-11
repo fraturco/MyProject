@@ -14,10 +14,10 @@ pipeline {
                 sh 'mvn install'
             }
         }
-        //stage(''){
-            //steps{
-            // sh 'mvn deploy'
-            //}
-        //}
+        stage(''){
+            steps{
+             sh 'mvn deploy MyProject'
+            }
+        }
     }
 }
