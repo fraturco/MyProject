@@ -12,7 +12,7 @@ pipeline {
         }
         stage('install') { 
             steps {
-                sh 'mvn cosa'
+                sh 'mvn install'
             }
         }
     }
