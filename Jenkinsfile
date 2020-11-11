@@ -15,11 +15,6 @@ pipeline {
                 sh 'mvn cosa'
             }
         }
-        stage('deploy'){
-            steps{
-             sh 'mvn deploy  MyProject'
-            }
-        }
     }
     post {
         success{
