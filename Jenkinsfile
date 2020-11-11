@@ -16,7 +16,7 @@ pipeline {
         }
         stage('deploy'){
             steps{
-             sh 'mvn deploy -com.mvn MyProject'
+             sh 'mvn deploy -p MyProject'
             }
         }
     }
