@@ -10,10 +10,15 @@ pipeline {
                 git 'https://github.com/fraturco/MyProject'
             }
         }
+        tr {
         stage('install') { 
             steps {
                 sh 'mvn install'
             }
+          }
+        }
+        cathc (e){
+        
         }
     }
     post {
